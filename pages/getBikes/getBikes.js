@@ -1,5 +1,5 @@
-import { API_URL } from "./settings.js"
-import { sanitizeStringWithTableRows } from "./utils.js"
+import { API_URL } from "../../settings.js"
+import { sanitizeStringWithTableRows } from "../../utils.js"
 const URL = API_URL + "bikes"
 
 let bikes = []; 
