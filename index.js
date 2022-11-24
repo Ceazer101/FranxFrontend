@@ -4,6 +4,8 @@ import {
     setActiveLink, adjustForMissingHash, renderTemplate, loadHtml
 } from "./utils.js"
 
+import { load } from "./pages/getBikes/getBikes.js"
+
 window.addEventListener("load", async () => {
 
     const templatehome = await loadHtml("./pages/home/home.html")
@@ -31,6 +33,7 @@ window.addEventListener("load", async () => {
   
         "/showBikes": () => {
           renderTemplate(templateGetBikes, "content")
+          load()
         },
      
       })
