@@ -6,13 +6,9 @@ import {
 
 window.addEventListener("load", async () => {
 
-    const templatehome = await loadHtml("./projectPages/home.html")
-    const templateAbout = await loadHtml("./projectPages/about/about.html")
-    const templateReservation = await loadHtml("./projectPages/reservation/reservationData.html")
-    const templateBooking = await loadHtml("./projectPages/reservation/booking.html")
-    const templateActivities = await loadHtml("./projectPages/activities/activityOverview.html")
-    const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
-    const templateFindReservation = await loadHtml("./ProjectPages/reservation/findReservation.html")
+    const templatehome = await loadHtml("./pages/home/home.html")
+    const templateAddBike = await loadHtml("./pages/addBike/addBike.html")
+    const templateGetBikes = await loadHtml("./pages/getBikes/getBikes.html")
   
     adjustForMissingHash()
   
@@ -31,10 +27,10 @@ window.addEventListener("load", async () => {
     
         "/": () => renderTemplate(templatehome, "content"),
   
-        "/addBike": () => renderTemplate(templateAbout, "content"),
+        "/addBike": () => renderTemplate(templateAddBike, "content"),
   
         "/showBikes": () => {
-          renderTemplate(templateReservation, "content")
+          renderTemplate(templateGetBikes, "content")
         },
      
       })
