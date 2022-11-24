@@ -23,5 +23,3 @@ export async function load(){
     `).join("")
     document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
 }
-
-load()
