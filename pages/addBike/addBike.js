@@ -30,5 +30,3 @@ export function initMakeBike(){
     .then(r => r.json())
 
 }
-
-initMakeBike()

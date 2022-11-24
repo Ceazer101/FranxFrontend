@@ -5,6 +5,7 @@ import {
 } from "./utils.js"
 
 import { load } from "./pages/getBikes/getBikes.js"
+import { initMakeBike } from "./pages/addBike/addBike.js"
 
 window.addEventListener("load", async () => {
 
@@ -29,7 +30,10 @@ window.addEventListener("load", async () => {
     
         "/": () => renderTemplate(templatehome, "content"),
   
-        "/addBike": () => renderTemplate(templateAddBike, "content"),
+        "/addBike": () => {
+          renderTemplate(templateAddBike, "content")
+          initMakeBike()
+        },
   
         "/showBikes": () => {
           renderTemplate(templateGetBikes, "content")
