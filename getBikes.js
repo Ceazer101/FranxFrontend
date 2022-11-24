@@ -1,4 +1,6 @@
-const URL = "http://localhost:8080/api/bikes"
+import { API_URL } from "./settings.js"
+import { sanitizeStringWithTableRows } from "./utils.js"
+const URL = API_URL + "bikes"
 
 let bikes = []; 
 
@@ -19,7 +21,7 @@ export async function load(){
       <td>${bike.status}</td>
       <td>${bike.sellDate}</td>
     `).join("")
-    document.getElementById("tbl-body").innerHTML = rows
+    document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
 }
 
 load()
