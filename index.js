@@ -1,0 +1,1 @@
+import "https://unpkg.com/navigo"  //Will create the global Navigo object used below
