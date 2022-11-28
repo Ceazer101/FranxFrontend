@@ -12,6 +12,7 @@ window.addEventListener("load", async () => {
     const templatehome = await loadHtml("./pages/home/home.html")
     const templateAddBike = await loadHtml("./pages/addBike/addBike.html")
     const templateGetBikes = await loadHtml("./pages/getBikes/getBikes.html")
+    const templateEditBikes = await loadHtml("./pages/editBike/editBike.html")
   
     adjustForMissingHash()
   
@@ -39,6 +40,11 @@ window.addEventListener("load", async () => {
         "/showBikes": () => {
           renderTemplate(templateGetBikes, "content")
           load()
+        },
+
+        "/editBikes": () => {
+          renderTemplate(templateEditBikes, "content")
+      
         },
      
       })
