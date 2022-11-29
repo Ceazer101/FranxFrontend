@@ -6,6 +6,7 @@ import {
 
 import { load } from "./pages/getBikes/getBikes.js"
 import { initMakeBike, initShowInfo } from "./pages/addBike/addBike.js"
+import { initFindBikes } from "./pages/bikeStatistics/bikeStatistics.js"
 
 window.addEventListener("load", async () => {
 
@@ -13,6 +14,7 @@ window.addEventListener("load", async () => {
     const templateAddBike = await loadHtml("./pages/addBike/addBike.html")
     const templateGetBikes = await loadHtml("./pages/getBikes/getBikes.html")
     const templateEditBikes = await loadHtml("./pages/editBike/editBike.html")
+    const templateBikeStatistics = await loadHtml("./pages/bikeStatistics/bikeStatistics.html")
   
     adjustForMissingHash()
   
@@ -45,6 +47,11 @@ window.addEventListener("load", async () => {
         "/editBikes": () => {
           renderTemplate(templateEditBikes, "content")
       
+        },
+        
+        "/bikeStatistics": () => {
+          renderTemplate(templateBikeStatistics, "content")
+          initFindBikes()
         },
      
       })
