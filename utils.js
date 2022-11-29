@@ -63,6 +63,16 @@ export function renderTemplate(template, contentId) {
     secureRows = secureRows.replace("<table>", "").replace("</table>", "")
     return secureRows
   }
+
+  export async function handleHttpErrors(res) {
+    if (!res.ok) {
+      const errorResponse = await res.json();
+      const error = new Error(errorResponse.message)
+      error.apiError = errorResponse
+      throw error
+    }
+    return res.json()
+  }
   
   
   /**

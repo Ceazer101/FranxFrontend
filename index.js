@@ -6,6 +6,7 @@ import {
 
 import { load } from "./pages/getBikes/getBikes.js"
 import { initMakeBike, initShowInfo } from "./pages/addBike/addBike.js"
+import { initFindEditBike } from "./pages/editBike/editBike.js"
 
 window.addEventListener("load", async () => {
 
@@ -44,6 +45,7 @@ window.addEventListener("load", async () => {
 
         "/editBikes": () => {
           renderTemplate(templateEditBikes, "content")
+          initFindEditBike()
       
         },
      
