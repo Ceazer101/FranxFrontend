@@ -6,11 +6,8 @@ import {
 
 import { load } from "./pages/getBikes/getBikes.js"
 import { initMakeBike, initShowInfo } from "./pages/addBike/addBike.js"
-<<<<<<< HEAD
 import { initFindEditBike } from "./pages/editBike/editBike.js"
-=======
 import { initFindBikes } from "./pages/bikeStatistics/bikeStatistics.js"
->>>>>>> ddbf0855d4c894201732272c61a91c95467ecbc4
 
 window.addEventListener("load", async () => {
 
