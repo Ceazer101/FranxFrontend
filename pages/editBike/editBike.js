@@ -63,7 +63,7 @@ function getBikeFrameNumberFromInputField() {
       bike.model = bikeInputModel.value
       bike.price = bikeInputPrice.value
       bike.sellDate = bikeInputDate.value
-      bike.staus = bikeInputStatus.value
+      bike.status = bikeInputStatus.value
   
       if (bike.frameNumber === "") {
         setStatusMsg(`Manglende felt skal udfyldes`, false)
