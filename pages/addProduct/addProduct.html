@@ -1,0 +1,77 @@
+<div class="template">
+    <H1 class ="text-center">Tilføjelse af produkter</H1>
+    <div class="container text-center" >
+            <div class="row">
+                <div class="col-label">
+                    <label for="product-number">Produktnummer</label>
+                </div>
+                <div class="col-input">
+                    <input type="number" id="product-number" name="product-number" placeholder="produkt nummer">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="product-name">Navn</label>
+                </div>
+                <div class="col-input">
+                    <input type="text" id="product-name" name="product-name" placeholder="navn">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="product-description">Beskrivesle</label>
+                </div>
+                <div class="col-input">
+                    <input type="text" id="product-description" name="product-description" placeholder="Beskrivesle">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="dristributor">Leverandør</label>
+                </div>
+                <div class="col-input">
+                    <input type="text" id="dristributor" name="dristributor" placeholder="leverandør">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="tax-code">momskode</label>
+                </div>
+                <div class="col-input">
+                    <select type="text" id="tax-code">
+                        <option value="" disabled selected hidden>Vælg en momskode</option>
+                        <option value="V">V</option>
+                        <option value="Y">Y</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="number-of-units">Antal enheder</label>
+                </div>
+                <div class="col-input">
+                    <input type="number" id="number-of-units" name="number-of-units" placeholder="antal enheder">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-label">
+                    <label for="unit-price">enhedspris</label>
+                </div>
+                <div class="col-input">
+                    <input type="number" id="unit-price" name="unit-price" placeholder="enhedspris">
+                </div>
+            </div>
+
+            <br>
+            <div>
+                <button id="btn-submit-product" type="button" class="btn btn-dark">Tilføj</button>
+            </div>
+    </div>
+</div>
