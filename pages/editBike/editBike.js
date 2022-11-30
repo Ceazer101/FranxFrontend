@@ -111,5 +111,4 @@ function getBikeFrameNumberFromInputField() {
     bikeInputDate.value = "";
     bikeInputStatus.value = "";
   }
-
 }
