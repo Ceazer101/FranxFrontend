@@ -18,6 +18,7 @@ export async function initFindEditBike(match) {
     bikeInputPrice = document.getElementById("price")
     bikeInputDate = document.getElementById("buy-date")
     bikeInputStatus = document.getElementById("statusIndicator")
+}
 
 
 function getBikeFrameNumberFromInputField() {
@@ -111,4 +112,3 @@ function getBikeFrameNumberFromInputField() {
     bikeInputDate.value = "";
     bikeInputStatus.value = "";
   }
-}
