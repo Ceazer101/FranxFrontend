@@ -18,10 +18,11 @@ export async function initFindEditBike(match) {
     bikeInputPrice = document.getElementById("price")
     bikeInputDate = document.getElementById("buy-date")
     bikeInputStatus = document.getElementById("statusIndicator")
+}
 
 
 function getBikeFrameNumberFromInputField() {
-    const frameNumber = document.getElementById("frame-number").value
+    const frameNumber = document.getElementById("frame-number-bike").value
 
     if (!frameNumber) {
       setStatusMsg("Venligst indtast et stelnummer", true)
@@ -91,7 +92,7 @@ function getBikeFrameNumberFromInputField() {
   }
 
   function setStatusMsg(msg, isError) {
-    const color = isError ? "red" : "darkgreen"
+    const color = isError ? "red" : "yellow"
     const statusNode = document.getElementById("status")
     statusNode.style.color = color
     statusNode.innerText = msg
@@ -111,4 +112,3 @@ function getBikeFrameNumberFromInputField() {
     bikeInputDate.value = "";
     bikeInputStatus.value = "";
   }
-}
