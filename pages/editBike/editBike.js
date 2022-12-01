@@ -22,7 +22,7 @@ export async function initFindEditBike(match) {
 
 
 function getBikeFrameNumberFromInputField() {
-    const frameNumber = document.getElementById("frame-number").value
+    const frameNumber = document.getElementById("frame-number-bike").value
 
     if (!frameNumber) {
       setStatusMsg("Venligst indtast et stelnummer", true)
