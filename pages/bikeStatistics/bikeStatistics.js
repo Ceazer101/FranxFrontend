@@ -3,7 +3,10 @@ import { sanitizeStringWithTableRows } from "../../utils.js"
 const URL = API_URL + "statistics-bike"
 
 export async function initFindBikes(match){
-    document.getElementById("btn-fetch-bike").onclick = fetchBikeData
+    document.getElementById("btn-fetch-bike").onclick = () => {
+        fetchBikeData()
+        document.getElementById("btn-fetch-quarterly").style.display = "block"
+    }
     if(match?.params?.id){
         const id = match.params.id 
         try{
@@ -46,7 +49,7 @@ export async function loadStats(id){
         const price = data.totalPriceYearly
 
         document.getElementById("totalNumberOfBikes").innerText = number
-        document.getElementById("TotalPrice").innerText = price 
+        document.getElementById("TotalPrice").innerText = price + " kr."
 
         const rows = bikes.map(bike => `
         <tr>
@@ -62,7 +65,11 @@ export async function loadStats(id){
     }catch (e){
         console.error(e)
     }
-
-    
 }
+
+export async function showquarterly(){
+    document.getElementById("btn-fetch-quarterly").onclick = () => {
+        document.getElementById("qstats").style.display = "block"
+    }
+} 
 

@@ -7,7 +7,7 @@ import {
 import { load } from "./pages/getBikes/getBikes.js"
 import { initMakeBike, initShowInfo } from "./pages/addBike/addBike.js"
 import { initFindEditBike } from "./pages/editBike/editBike.js"
-import { initFindBikes } from "./pages/bikeStatistics/bikeStatistics.js"
+import { initFindBikes , showquarterly } from "./pages/bikeStatistics/bikeStatistics.js"
 import { loadProducts } from "./pages/getProducts/getProducts.js"
 import { initMakeProduct } from "./pages/addProduct/addProduct.js"
 
@@ -58,6 +58,7 @@ window.addEventListener("load", async () => {
         "/bikeStatistics": () => {
           renderTemplate(templateBikeStatistics, "content")
           initFindBikes()
+          showquarterly()
         },
 
         "/showProducts": () => {

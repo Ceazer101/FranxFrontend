@@ -1,27 +1,61 @@
 <div class="template"> 
     <div class="container">
+
+        <div class="row">
+            <div class="col-2">
+                <input id="year" placeholder="Indtast år" class="text-center"/>
+              </div>
+            <div class="col-3">
+                <button class="btn btn-dark" id="btn-fetch-bike">Hent</button>
+                <br>
+                <br>
+            </div>
+            <p id="error" style="color: red;"></p>
+            <div class="col-3">
+            <button class="btn btn-dark" id="btn-fetch-quarterly" style="display: none;">Vis statestik for kvartaler</button>
+            </div>
+        </div>
         
+        <div id="qstats" style="display: none;">
+            <br>
+            <table class = "table">
+                <h4>Antal solgte cykler</h4>
+                <thead>
+                    <tr>
+                        <th>1. kvartal</th>
+                        <th>2. kvartal</th>
+                        <th>3. kvartal</th>
+                        <th>4. kvartal</th>
+                    </tr>
+                </thead>
+                <tbody id = "qn-tbl-body"></tbody>
+            </table>
+            <br>
+
+            <table class = "table">
+                <h4>Samlet pris for solgte cykler</h4>
+                <thead>
+                    <tr>
+                        <th>1. kvartal</th>
+                        <th>2. kvartal</th>
+                        <th>3. kvartal</th>
+                        <th>4. kvartal</th>
+                    </tr>
+                </thead>
+                <tbody id = "qp-tbl-body"></tbody>
+            </table>
+        </div>
+
         <br>
 
-            <div class="row">
+            <div>
+                <div class="col">
+                    <label style="font-weight: bold;" for="totalNumberOfBikes">Samlet antal af cykler:</label>
+                    <model " id="totalNumberOfBikes"></model>
+                </div>
                 <div class="col-3">
-                    <input id="year" placeholder="Indtast år" class="text-center"/>
-                  </div>
-                <div class="col-3">
-                    <button class="btn btn-dark" id="btn-fetch-bike">Indsend</button>
-                </div>
-                <p id="error" style="color: red;"></p>
-                <div class="col">
-                    <label for="totalNumberOfBikes">Samlet antal af cykler</label>
-                </div>
-                <div class="col">
-                    <model id="totalNumberOfBikes">
-                </div>
-                <div class="col">
-                    <label for="TotalPrice">Samlet pris for solgte cykler</label>
-                </div>
-                <div class="col">
-                    <model id="TotalPrice">
+                    <label style="font-weight: bold;" for="TotalPrice">Samlet pris for solgte cykler:</label>
+                    <model id="TotalPrice"></model>
                 </div>
             </div>
         
