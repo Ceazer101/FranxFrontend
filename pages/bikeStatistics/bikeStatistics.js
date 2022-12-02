@@ -31,9 +31,7 @@ async function fetchBikeData(){
     }
 }
 
- 
-
-export async function loadStats(id){
+async function loadStats(id){
     try{
         const data = await fetch(URL + "/" + id)
         .then(res => res.json())
@@ -41,17 +39,31 @@ export async function loadStats(id){
         if(Object.keys(data).length === 0){
             throw new Error("Ingen cykler at finde, dette år: " + id)
         }
-        //document.getElementById("year").innerText = data.id
 
-        const bikes = data.bikesSold
+        loadYNumbers(data)
 
-        const number = data.numberOfSoldBikesYearly
-        const price = data.totalPriceYearly
+       loadBikes(data)
 
-        document.getElementById("totalNumberOfBikes").innerText = number
-        document.getElementById("TotalPrice").innerText = price + " kr."
+       loadQNumbers(data)
 
-        const rows = bikes.map(bike => `
+       loadQPrices(data)
+        
+    }catch (e){
+        console.error(e)
+    }
+}
+
+async function loadYNumbers(data){
+    const number = data.numberOfSoldBikesYearly
+    const price = data.totalPriceYearly
+
+    document.getElementById("totalNumberOfBikes").innerText = number
+    document.getElementById("TotalPrice").innerText = price + " kr."
+}
+
+async function loadBikes(data){
+    const bikes = data.bikesSold
+    const rows = bikes.map(bike => `
         <tr>
         <td>${bike.frameNumber}</td>
         <td>${bike.model}</td>
@@ -59,12 +71,47 @@ export async function loadStats(id){
         <td>${bike.price}</td>
         <td>${bike.status}</td>
         <td>${bike.sellDate}</td>
-        `).join("")
-        document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
-        
-    }catch (e){
-        console.error(e)
-    }
+        </tr>
+    `).join("")
+    document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
+}
+
+async function loadQNumbers(data){
+
+    const quarterNum = data.quarterlyNumbers
+    let quart1 = quarterNum[0]
+    let quart2 = quarterNum[1]
+    let quart3 = quarterNum[2]
+    let quart4 = quarterNum[3]
+
+   
+    const tableRow = `
+    <tr>
+    <td>${quart1}</td>
+    <td>${quart2}</td>
+    <td>${quart3}</td>
+    <td>${quart4}</td>
+    </tr>`
+    document.getElementById("qn-tbl-body").innerHTML = sanitizeStringWithTableRows(tableRow)
+}
+
+async function loadQPrices(data){
+
+    const quarterPrice = data.totalPriceQuarterly
+    let quart1 = quarterPrice[0]
+    let quart2 = quarterPrice[1]
+    let quart3 = quarterPrice[2]
+    let quart4 = quarterPrice[3]
+
+   
+    const tableRow = `
+        <tr>
+        <td>${quart1 + " ,-"}</td>
+        <td>${quart2 + " ,-"}</td>
+        <td>${quart3 + " ,-"}</td>
+        <td>${quart4 + " ,-"}</td>
+        </tr>`
+    document.getElementById("qp-tbl-body").innerHTML = sanitizeStringWithTableRows(tableRow)
 }
 
 export async function showquarterly(){
@@ -72,4 +119,5 @@ export async function showquarterly(){
         document.getElementById("qstats").style.display = "block"
     }
 } 
+
 
