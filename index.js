@@ -19,7 +19,8 @@ window.addEventListener("load", async () => {
     const templateEditBikes = await loadHtml("./pages/editBike/editBike.html")
     const templateBikeStatistics = await loadHtml("./pages/bikeStatistics/bikeStatistics.html")
     const templateGetProducts = await loadHtml("./pages/getProducts/getProducts.html")
-    const templateAddProduct = await loadHtml("./pages/AddProduct/AddProduct.html")
+    const templateAddProduct = await loadHtml("./pages/addProduct/addProduct.html")
+    const templateSellProduct = await loadHtml("./pages/sellProduct/sellProduct.html")
   
     adjustForMissingHash()
   
@@ -69,6 +70,11 @@ window.addEventListener("load", async () => {
         "/addProduct": () => {
           renderTemplate(templateAddProduct, "content")
           initMakeProduct()
+        
+        },
+        
+        "/sellProduct": () => {
+          renderTemplate(templateSellProduct, "content")
         
         },
      
