@@ -90,4 +90,15 @@ export function renderTemplate(template, contentId) {
     str = str.replace(/'/g, "&#039;");
     return str;
   }
+
+  export function setStatusMsg(msg, isError) {
+    const color = isError ? "red" : "yellow"
+    const statusNode = document.getElementById("status")
+    statusNode.style.color = color
+    statusNode.innerText = msg
+  }
+
+  export function setInfoText(txt) {
+    document.getElementById("info-text").innerText = txt
+  }
   

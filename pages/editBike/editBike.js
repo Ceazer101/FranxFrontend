@@ -1,4 +1,4 @@
-import { handleHttpErrors } from "../../utils.js"
+import { handleHttpErrors, setStatusMsg, setInfoText} from "../../utils.js"
 import { API_URL, FETCH_NO_API_ERROR} from "../../settings.js"
 
 
@@ -89,17 +89,6 @@ function getBikeFrameNumberFromInputField() {
         console.log(err.message + FETCH_NO_API_ERROR)
       }
     }
-  }
-
-  function setStatusMsg(msg, isError) {
-    const color = isError ? "red" : "yellow"
-    const statusNode = document.getElementById("status")
-    statusNode.style.color = color
-    statusNode.innerText = msg
-  }
-
-  function setInfoText(txt) {
-    document.getElementById("info-text").innerText = txt
   }
 
   function clearInputFields() {

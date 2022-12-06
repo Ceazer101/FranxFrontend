@@ -1,41 +1,43 @@
-import { handleHttpErrors } from "../../utils.js"
+import { handleHttpErrors, setStatusMsg, setInfoText} from "../../utils.js"
 import { API_URL, FETCH_NO_API_ERROR} from "../../settings.js"
 
 
-let bikeFrameNumberInput
-let bikeInputBrand
-let bikeInputModel
-let bikeInputPrice
-let bikeInputDate
-let bikeInputStatus
+let productNumberInput
+let productNameInput
+let productDescInput
+let distributorInput
+let taxCodeInput
+let numberOfUnitsInput
+let unitPriceInput
 
 export async function initFindEditBike(match) {
-    document.getElementById("btn-fetch-bike").onclick = getBikeFrameNumberFromInputField
-    document.getElementById("btn-submit-edited-bike").onclick = submitEditedBike
-    bikeFrameNumberInput = document.getElementById("frame-number")
-    bikeInputBrand = document.getElementById("brand")
-    bikeInputModel = document.getElementById("model")
-    bikeInputPrice = document.getElementById("price")
-    bikeInputDate = document.getElementById("buy-date")
-    bikeInputStatus = document.getElementById("statusIndicator")
+    document.getElementById("btn-fetch-product").onclick = getProductNumberFromInputField
+    document.getElementById("btn-submit-edited-product").onclick = submitEditedProduct
+    productNumberInput = document.getElementById("product-number")
+    productNameInput = document.getElementById("product-name")
+    productDescInput = document.getElementById("product-description")
+    distributorInput = document.getElementById("distributor")
+    taxCodeInput = document.getElementById("tax-code")
+    numberOfUnitsInput = document.getElementById("number-of-units")
+    unitPriceInput = document.getElementById("unit-price")
 }
 
 
-function getBikeFrameNumberFromInputField() {
-    const frameNumber = document.getElementById("frame-number-bike").value
+function getProductNumberFromInputField() {
+    const productNumber = document.getElementById("product-id-number").value
 
-    if (!frameNumber) {
-      setStatusMsg("Venligst indtast et stelnummer", true)
+    if (!productNumber) {
+      setStatusMsg("Venligst indtast et produkt nummer", true)
       return
     }
-    fetchBike(frameNumber)
+    fetchProduct(productNumber)
   }
 
-  async function fetchBike(frameNumber) {
+  async function fetchProduct(productNumber) {
     setStatusMsg("", false)
     try {
-      const bike = await fetch(API_URL + "bikes" + "/" + frameNumber).then(handleHttpErrors)
-      renderBike(bike)
+      const product = await fetch(API_URL + "products" + "/" + productNumber).then(handleHttpErrors)
+      renderProduct(product)
       setInfoText("Indtast ændringer og tryk indsend")
     } catch (err) {
       if (err.apiError) {
@@ -46,27 +48,29 @@ function getBikeFrameNumberFromInputField() {
     }
   }
 
-  function renderBike(bike) {
-    bikeFrameNumberInput.value = bike.frameNumber;
-    bikeInputBrand.value = bike.brand;
-    bikeInputModel.value = bike.model;
-    bikeInputPrice.value = bike.price;
-    bikeInputDate.value = bike.sellDate;
-    bikeInputStatus.value = bike.status;
+  function renderProduct(product) {
+    productNumberInput.value = product.productNumber;
+    productNameInput.value = product.productName;
+    productDescInput.value = product.productDesc;
+    distributorInput.value = product.distributor;
+    taxCodeInput.value = product.taxCode;
+    numberOfUnitsInput.value = product.numberOfUnits;
+    unitPriceInput.value = product.unitPrice;
   }
 
-  async function submitEditedBike(evt) {
+  async function submitEditedProduct(evt) {
     evt.preventDefault()
     try {
-      const bike = {}
-      bike.frameNumber = bikeFrameNumberInput.value
-      bike.brand = bikeInputBrand.value
-      bike.model = bikeInputModel.value
-      bike.price = bikeInputPrice.value
-      bike.sellDate = bikeInputDate.value
-      bike.status = bikeInputStatus.value
+      const product = {}
+      product.productNumber = productNumberInput.value
+      product.productName = productNameInput.value
+      product.productDesc = productDescInput.value
+      product.distributor = distributorInput.value
+      product.taxCode = taxCodeInput.value
+      product.numberOfUnits = numberOfUnitsInput.value
+      product.unitPrice = unitPriceInput.value
   
-      if (bike.frameNumber === "") {
+      if (product.productNumber === "") {
         setStatusMsg(`Manglende felt skal udfyldes`, false)
         return
       }
@@ -74,13 +78,13 @@ function getBikeFrameNumberFromInputField() {
       const options = {}
       options.method = "PUT"
       options.headers = { "Content-type": "application/json" }
-      options.body = JSON.stringify(bike)
+      options.body = JSON.stringify(product)
   
   
-      const PUT_URL = API_URL + "bikes" + "/" + bike.frameNumber
-      const newBike = await fetch(PUT_URL, options).then(handleHttpErrors)
+      const PUT_URL = API_URL + "products" + "/" + product.productNumber
+      const newProduct = await fetch(PUT_URL, options).then(handleHttpErrors)
       clearInputFields()
-      setStatusMsg(`Cykel med dette stelnummer '${bike.frameNumber}' er blevet ændret`)
+      setStatusMsg(`Cykel med dette stelnummer '${product.productNumber}' er blevet ændret`)
     } catch (err) {
       if (err.apiError) {
         setStatusMsg(err.apiError.message, true)
@@ -91,24 +95,14 @@ function getBikeFrameNumberFromInputField() {
     }
   }
 
-  function setStatusMsg(msg, isError) {
-    const color = isError ? "red" : "yellow"
-    const statusNode = document.getElementById("status")
-    statusNode.style.color = color
-    statusNode.innerText = msg
-  }
-
-  function setInfoText(txt) {
-    document.getElementById("info-text").innerText = txt
-  }
-
   function clearInputFields() {
-    document.getElementById("frame-number").value = ""
+    document.getElementById("product-number").value = ""
    
-    bikeFrameNumberInput.value = "";
-    bikeInputBrand.value = "";
-    bikeInputModel.value = "";
-    bikeInputPrice.value = "";
-    bikeInputDate.value = "";
-    bikeInputStatus.value = "";
+    productNumberInput.value = "";
+    productNameInput.value = "";
+    productDescInput.value = "";
+    distributorInput.value = "";
+    taxCodeInput.value = "";
+    numberOfUnitsInput.value = "";
+    unitPriceInput.value = "";
   }
