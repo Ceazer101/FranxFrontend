@@ -12,6 +12,7 @@ let bikeInputStatus
 export async function initFindEditBike(match) {
     document.getElementById("btn-fetch-bike").onclick = getBikeFrameNumberFromInputField
     document.getElementById("btn-submit-edited-bike").onclick = submitEditedBike
+    document.getElementById("btn-delete-bike").onclick = deleteBike
     bikeFrameNumberInput = document.getElementById("frame-number")
     bikeInputBrand = document.getElementById("brand")
     bikeInputModel = document.getElementById("model")
@@ -42,6 +43,30 @@ function getBikeFrameNumberFromInputField() {
         setStatusMsg(err.apiError.message, true)
       } else {
         console.log(err.message)
+      }
+    }
+  }
+
+  async function deleteBike() {
+    try {
+      const idForBikeToDelete = document.getElementById("frame-number").value
+      if (idForBikeToDelete === "") {
+        setStatusMsg("No bike found to delete", true)
+        return
+      }
+      const options = {}
+      options.method = "DELETE"
+      await fetch(API_URL + "bikes" + "/" + idForBikeToDelete, options)
+      setStatusMsg("Bike succesfully deleted", false)
+      clearInputFields()
+    }
+    catch (err) {
+      if (err.apiError) {
+        setStatusMsg(err.apiError.message, true)
+      }
+      else {
+        setStatusMsg(err.message + FETCH_NO_API_ERROR)
+        console.log(err.message + FETCH_NO_API_ERROR)
       }
     }
   }

@@ -46,7 +46,7 @@ window.addEventListener("load", async () => {
           initShowInfo()
         },
   
-        "/showBikes": () => {
+        "/showBikes": (n) => {
           renderTemplate(templateGetBikes, "content")
           load()
         },
