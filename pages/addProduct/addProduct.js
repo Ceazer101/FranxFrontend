@@ -12,7 +12,7 @@ export function initMakeProduct(){
         newProduct.productNumber = document.getElementById("product-number").value
         newProduct.productName = document.getElementById("product-name").value
         newProduct.productDesc = document.getElementById("product-description").value
-        newProduct.distributor = document.getElementById("dristributor").value
+        newProduct.distributor = document.getElementById("distributor").value
         newProduct.taxCode = document.getElementById("tax-code").value
         newProduct.numberOfUnits = document.getElementById("number-of-units").value
         newProduct.unitPrice = document.getElementById("unit-price").value
