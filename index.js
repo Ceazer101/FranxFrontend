@@ -10,6 +10,7 @@ import { initFindEditBike } from "./pages/editBike/editBike.js"
 import { initFindBikes , showquarterly } from "./pages/bikeStatistics/bikeStatistics.js"
 import { loadProducts } from "./pages/getProducts/getProducts.js"
 import { initMakeProduct } from "./pages/addProduct/addProduct.js"
+import { initFindEditProduct } from "./pages/editProduct/editProduct.js"
 
 window.addEventListener("load", async () => {
 
@@ -20,8 +21,8 @@ window.addEventListener("load", async () => {
     const templateBikeStatistics = await loadHtml("./pages/bikeStatistics/bikeStatistics.html")
     const templateGetProducts = await loadHtml("./pages/getProducts/getProducts.html")
     const templateAddProduct = await loadHtml("./pages/addProduct/addProduct.html")
-    const templateSellProduct = await loadHtml("./pages/sellProduct/sellProduct.html")
     const templateEditProduct = await loadHtml("./pages/editProduct/editProduct.html")
+    const templateSellProduct = await loadHtml("./pages/sellProduct/sellProduct.html")
   
     adjustForMissingHash()
   
@@ -74,13 +75,13 @@ window.addEventListener("load", async () => {
         
         },
         
-        "/sellProduct": () => {
-          renderTemplate(templateSellProduct, "content")
-        
-        },
-
         "/editProduct": () => {
           renderTemplate(templateEditProduct, "content")
+          initFindEditProduct()
+        },
+
+        "/sellProduct": () => {
+          renderTemplate(templateSellProduct, "content")
         
         },
      
