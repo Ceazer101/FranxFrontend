@@ -9,7 +9,7 @@ let bikeInputPrice
 let bikeInputDate
 let bikeInputStatus
 
-export async function initFindEditBike(match) {
+export async function initFindEditBike() {
     document.getElementById("btn-fetch-bike").onclick = getBikeFrameNumberFromInputField
     document.getElementById("btn-submit-edited-bike").onclick = submitEditedBike
     document.getElementById("btn-delete-bike").onclick = deleteBike
@@ -19,6 +19,8 @@ export async function initFindEditBike(match) {
     bikeInputPrice = document.getElementById("price")
     bikeInputDate = document.getElementById("buy-date")
     bikeInputStatus = document.getElementById("statusIndicator")
+    setStatusMsg("", false)
+
 }
 
 
@@ -117,6 +119,7 @@ function getBikeFrameNumberFromInputField() {
   }
 
   function clearInputFields() {
+    document.getElementById("frame-number-bike").value = ""
     document.getElementById("frame-number").value = ""
    
     bikeFrameNumberInput.value = "";
