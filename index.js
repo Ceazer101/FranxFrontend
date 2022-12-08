@@ -22,7 +22,6 @@ window.addEventListener("load", async () => {
     const templateGetProducts = await loadHtml("./pages/getProducts/getProducts.html")
     const templateAddProduct = await loadHtml("./pages/addProduct/addProduct.html")
     const templateEditProduct = await loadHtml("./pages/editProduct/editProduct.html")
-    const templateSellProduct = await loadHtml("./pages/sellProduct/sellProduct.html")
   
     adjustForMissingHash()
   
@@ -78,11 +77,6 @@ window.addEventListener("load", async () => {
         "/editProduct": () => {
           renderTemplate(templateEditProduct, "content")
           initFindEditProduct()
-        },
-
-        "/sellProduct": () => {
-          renderTemplate(templateSellProduct, "content")
-        
         },
      
       })
