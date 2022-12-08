@@ -77,3 +77,4 @@ function sortingStatus(evt){
     bikes = bikes.sort(sortOnStatus)
     createTable()
 }
+

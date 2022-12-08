@@ -6,7 +6,6 @@ let bikeFrameNumberInput
 let bikeInputBrand
 let bikeInputModel
 let bikeInputPrice
-let bikeInputDate
 let bikeInputStatus
 
 export async function initFindEditBike() {
