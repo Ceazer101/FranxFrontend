@@ -14,7 +14,6 @@ export function initMakeBike(){
         newBike.brand = document.getElementById("brand").value
         newBike.price = document.getElementById("price").value
         newBike.status = document.getElementById("status").value
-        newBike.sellDate = document.getElementById("sellDate").value
 
     const option = {}
         option.method = 'POST'
@@ -29,3 +28,6 @@ export function initShowInfo(){
         document.getElementById("status-alert").style.display = "none"; 
     }
 }
+
+
+

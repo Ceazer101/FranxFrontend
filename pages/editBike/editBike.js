@@ -17,7 +17,6 @@ export async function initFindEditBike() {
     bikeInputBrand = document.getElementById("brand")
     bikeInputModel = document.getElementById("model")
     bikeInputPrice = document.getElementById("price")
-    bikeInputDate = document.getElementById("buy-date")
     bikeInputStatus = document.getElementById("statusIndicator")
     setStatusMsg("", false)
 
@@ -78,7 +77,6 @@ function getBikeFrameNumberFromInputField() {
     bikeInputBrand.value = bike.brand;
     bikeInputModel.value = bike.model;
     bikeInputPrice.value = bike.price;
-    bikeInputDate.value = bike.sellDate;
     bikeInputStatus.value = bike.status;
   }
 
@@ -90,7 +88,6 @@ function getBikeFrameNumberFromInputField() {
       bike.brand = bikeInputBrand.value
       bike.model = bikeInputModel.value
       bike.price = bikeInputPrice.value
-      bike.sellDate = bikeInputDate.value
       bike.status = bikeInputStatus.value
   
       if (bike.frameNumber === "") {
@@ -126,6 +123,5 @@ function getBikeFrameNumberFromInputField() {
     bikeInputBrand.value = "";
     bikeInputModel.value = "";
     bikeInputPrice.value = "";
-    bikeInputDate.value = "";
     bikeInputStatus.value = "";
   }
