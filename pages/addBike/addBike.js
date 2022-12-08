@@ -1,9 +1,6 @@
 import { API_URL} from "../../settings.js"
 const URL = API_URL + "bikes"
 
-
-
-
 export function initMakeBike(){
     document.getElementById("btn-submit").onclick = ()=>{
         createNewBike()
@@ -18,7 +15,6 @@ export function initMakeBike(){
         newBike.brand = document.getElementById("brand").value
         newBike.price = document.getElementById("price").value
         newBike.status = document.getElementById("status").value
-        newBike.sellDate = document.getElementById("sellDate").value
 
     const option = {}
         option.method = 'POST'
@@ -26,10 +22,6 @@ export function initMakeBike(){
         option.body = JSON.stringify(newBike)
     fetch(URL, option)
     .then(r => r.json())
-
-    
-
-    
 }
 
 export function initShowInfo(){
