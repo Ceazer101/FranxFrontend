@@ -4,6 +4,7 @@ const URL = API_URL + "products"
 export function initMakeProduct(){
     document.getElementById("btn-submit-product").onclick = ()=>{
         createNewProduct()
+        clearInputFields()
     }
 }
 
@@ -24,3 +25,13 @@ export function initMakeProduct(){
     fetch(URL, option)
     .then(r => r.json())
 }
+
+function clearInputFields() {
+    document.getElementById("product-number").value = ""
+    document.getElementById("product-name").value = ""
+    document.getElementById("product-description").value = ""
+    document.getElementById("distributor").value = ""
+    document.getElementById("tax-code").value = ""
+    document.getElementById("number-of-units").value = "" 
+    document.getElementById("unit-price").value = "" 
+  }

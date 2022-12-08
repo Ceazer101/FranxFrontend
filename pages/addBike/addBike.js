@@ -1,9 +1,13 @@
 import { API_URL} from "../../settings.js"
 const URL = API_URL + "bikes"
 
+
+
+
 export function initMakeBike(){
     document.getElementById("btn-submit").onclick = ()=>{
         createNewBike()
+        clearInputFields()
     }
 }
 
@@ -22,6 +26,10 @@ export function initMakeBike(){
         option.body = JSON.stringify(newBike)
     fetch(URL, option)
     .then(r => r.json())
+
+    
+
+    
 }
 
 export function initShowInfo(){
@@ -29,3 +37,12 @@ export function initShowInfo(){
         document.getElementById("status-alert").style.display = "none"; 
     }
 }
+
+function clearInputFields() {
+    document.getElementById("framenumber").value = ""
+    document.getElementById("brand").value = ""
+    document.getElementById("model").value = ""
+    document.getElementById("price").value = ""
+    document.getElementById("status").value = ""
+    document.getElementById("sellDate").value = "" 
+  }
