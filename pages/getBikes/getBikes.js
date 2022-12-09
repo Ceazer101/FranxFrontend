@@ -4,11 +4,11 @@ const URL = API_URL + "bikes"
 
 let bikes = []
 
-export async function load(){
-    try{
+export async function load() {
+    try {
         bikes = await fetch(`${URL}`)
-        .then(res => res.json())
-    }catch (e){
+            .then(res => res.json())
+    } catch (e) {
         console.error(e)
     }
     createTable()
@@ -17,7 +17,7 @@ export async function load(){
     document.getElementById("sort-status").onclick = sortingStatus
 }
 
-function createTable(){
+function createTable() {
     const rows = bikes.map(bike => `
     <tr>
       <td>${bike.frameNumber}</td>
@@ -30,49 +30,49 @@ function createTable(){
     document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
 }
 
-function sortOnModel(a,b){
+function sortOnModel(a, b) {
     if (a.model > b.model) {
         return 1;
-      }
+    }
     if (a.model < b.model) {
         return -1;
     }
-        return 0;
+    return 0;
 }
 
-function sortOnBrand(a,b){
+function sortOnBrand(a, b) {
     if (a.brand > b.brand) {
         return 1;
-      }
+    }
     if (a.brand < b.brand) {
         return -1;
     }
-        return 0;
+    return 0;
 }
 
-function sortOnStatus(a,b){
+function sortOnStatus(a, b) {
     if (a.status > b.status) {
         return 1;
-      }
+    }
     if (a.status < b.status) {
         return -1;
     }
-        return 0;
+    return 0;
 }
 
-function sortingModel(evt){
+function sortingModel(evt) {
     evt.preventDefault()
     bikes = bikes.sort(sortOnModel)
     createTable()
 }
 
-function sortingBrand(evt){
+function sortingBrand(evt) {
     evt.preventDefault()
     bikes = bikes.sort(sortOnBrand)
     createTable()
 }
 
-function sortingStatus(evt){
+function sortingStatus(evt) {
     evt.preventDefault()
     bikes = bikes.sort(sortOnStatus)
     createTable()

@@ -1,10 +1,10 @@
-<div class="template"> 
+<div class="template">
     <div class="container">
 
         <div class="row">
             <div class="col-2">
-                <input id="year" placeholder="Indtast år" class="text-center"/>
-              </div>
+                <input id="year" placeholder="Indtast år" class="text-center" />
+            </div>
             <div class="col-3">
                 <button class="btn btn-primary" id="btn-fetch-bike">Hent</button>
                 <br>
@@ -12,13 +12,14 @@
             </div>
             <p id="error" style="color: red;"></p>
             <div class="col-3">
-            <button class="btn btn-primary" id="btn-fetch-quarterly" style="display: none;">Vis statestik for kvartaler</button>
+                <button class="btn btn-primary" id="btn-fetch-quarterly" style="display: none;">Vis statestik for
+                    kvartaler</button>
             </div>
         </div>
-        
+
         <div id="qstats" style="display: none;">
             <br>
-            <table class = "table">
+            <table class="table">
                 <h4>Antal solgte cykler</h4>
                 <thead class="text-white">
                     <tr>
@@ -28,11 +29,11 @@
                         <th>4. kvartal</th>
                     </tr>
                 </thead>
-                <tbody class="text-white" id = "qn-tbl-body"></tbody>
+                <tbody class="text-white" id="qn-tbl-body"></tbody>
             </table>
             <br>
 
-            <table class = "table">
+            <table class="table">
                 <h4>Samlet pris for solgte cykler</h4>
                 <thead class="text-white">
                     <tr>
@@ -42,30 +43,30 @@
                         <th>4. kvartal</th>
                     </tr>
                 </thead>
-                <tbody class="text-white" id = "qp-tbl-body"></tbody>
+                <tbody class="text-white" id="qp-tbl-body"></tbody>
             </table>
         </div>
 
         <br>
         <br>
 
-            <div>
-                <div class="col">
-                    <label style="font-weight: bold;" for="totalNumberOfBikes">Samlet antal af cykler:</label>
-                    <model " id="totalNumberOfBikes"></model>
-                </div>
-                <div class="col-3">
-                    <label style="font-weight: bold;" for="TotalPrice">Samlet pris for solgte cykler:</label>
-                    <model id="TotalPrice"></model>
-                </div>
+        <div>
+            <div class="col">
+                <label style="font-weight: bold;" for="totalNumberOfBikes">Samlet antal af cykler:</label>
+                <model " id=" totalNumberOfBikes"></model>
             </div>
-        
+            <div class="col-3">
+                <label style="font-weight: bold;" for="TotalPrice">Samlet pris for solgte cykler:</label>
+                <model id="TotalPrice"></model>
+            </div>
+        </div>
+
         <br>
         <br>
-        <table class = "table">
+        <table class="table">
             <h4>Solgte cykler i år</h4>
             <thead class="text-white">
-                <tr >
+                <tr>
                     <th>stelnummer</th>
                     <th>model</th>
                     <th>mærke</th>
@@ -74,7 +75,7 @@
                     <th>salgsdato</th>
                 </tr>
             </thead>
-            <tbody id = "tbl-body" class="text-white"></tbody>
+            <tbody id="tbl-body" class="text-white"></tbody>
         </table>
     </div>
 </div>

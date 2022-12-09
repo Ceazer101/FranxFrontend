@@ -2,58 +2,58 @@ import { API_URL } from "../../settings.js"
 import { sanitizeStringWithTableRows } from "../../utils.js"
 const URL = API_URL + "statistics-bike"
 
-export async function initFindBikes(match){
+export async function initFindBikes(match) {
     document.getElementById("btn-fetch-bike").onclick = () => {
         fetchBikeData()
         document.getElementById("btn-fetch-quarterly").style.display = "block"
     }
-    if(match?.params?.id){
-        const id = match.params.id 
-        try{
+    if (match?.params?.id) {
+        const id = match.params.id
+        try {
             loadStats(id)
         } catch (err) {
             document.getElementById("error").innerText = "Der fandtes ingen cykler fra dette år: " + id
-        } 
-     }
+        }
+    }
 
 }
 
-async function fetchBikeData(){
+async function fetchBikeData() {
     const id = document.getElementById("year").value
-    if(!id){
+    if (!id) {
         document.getElementById("error").innerText = "Indtast venligst et årstal"
         return
     }
-    try{
+    try {
         loadStats(id)
-    } catch (err){
+    } catch (err) {
         console.log("UPS" + err.message)
     }
 }
 
-async function loadStats(id){
-    try{
+async function loadStats(id) {
+    try {
         const data = await fetch(URL + "/" + id)
-        .then(res => res.json())
+            .then(res => res.json())
 
-        if(Object.keys(data).length === 0){
+        if (Object.keys(data).length === 0) {
             throw new Error("Ingen cykler at finde, dette år: " + id)
         }
 
         loadYNumbers(data)
 
-       loadBikes(data)
+        loadBikes(data)
 
-       loadQNumbers(data)
+        loadQNumbers(data)
 
-       loadQPrices(data)
-        
-    }catch (e){
+        loadQPrices(data)
+
+    } catch (e) {
         console.error(e)
     }
 }
 
-async function loadYNumbers(data){
+async function loadYNumbers(data) {
     const number = data.numberOfSoldBikesYearly
     const price = data.totalPriceYearly
 
@@ -61,7 +61,7 @@ async function loadYNumbers(data){
     document.getElementById("TotalPrice").innerText = price + " kr."
 }
 
-async function loadBikes(data){
+async function loadBikes(data) {
     const bikes = data.bikesSold
     const rows = bikes.map(bike => `
         <tr>
@@ -76,7 +76,7 @@ async function loadBikes(data){
     document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
 }
 
-async function loadQNumbers(data){
+async function loadQNumbers(data) {
 
     const quarterNum = data.quarterlyNumbers
     let quart1 = quarterNum[0]
@@ -84,7 +84,7 @@ async function loadQNumbers(data){
     let quart3 = quarterNum[2]
     let quart4 = quarterNum[3]
 
-   
+
     const tableRow = `
     <tr>
     <td>${quart1}</td>
@@ -95,7 +95,7 @@ async function loadQNumbers(data){
     document.getElementById("qn-tbl-body").innerHTML = sanitizeStringWithTableRows(tableRow)
 }
 
-async function loadQPrices(data){
+async function loadQPrices(data) {
 
     const quarterPrice = data.totalPriceQuarterly
     let quart1 = quarterPrice[0]
@@ -103,7 +103,7 @@ async function loadQPrices(data){
     let quart3 = quarterPrice[2]
     let quart4 = quarterPrice[3]
 
-   
+
     const tableRow = `
         <tr>
         <td>${quart1 + " ,-"}</td>
@@ -114,10 +114,10 @@ async function loadQPrices(data){
     document.getElementById("qp-tbl-body").innerHTML = sanitizeStringWithTableRows(tableRow)
 }
 
-export async function showquarterly(){
+export async function showquarterly() {
     document.getElementById("btn-fetch-quarterly").onclick = () => {
         document.getElementById("qstats").style.display = "block"
     }
-} 
+}
 
 

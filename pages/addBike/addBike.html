@@ -1,67 +1,65 @@
 <div class="template">
-    <H1 class ="text-center" style="color:#1e73be;" >Tilføj cykler her:</H1>
+    <H1 class="text-center" style="color:#1e73be;">Tilføj cykler her:</H1>
     <br>
-    <div class="container text-center" >
-            <div class="row">
-                <div class="col-label">
-                    <label for="framenumber">Stelnummer</label>
-                </div>
-                <div class="col-input">
-                    <input type="text" id="framenumber" name="framenumber" placeholder="Stelnummer">
-                </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-label">
+                <label for="framenumber">Stelnummer</label>
             </div>
+            <div class="col-input">
+                <input type="text" id="framenumber" name="framenumber" placeholder="Stelnummer">
+            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-label">
-                    <label for="brand">Mærke</label>
-                </div>
-                <div class="col-input">
-                    <input type="text" id="brand" name="brand" placeholder="Mærke">
-                </div>
+        <div class="row">
+            <div class="col-label">
+                <label for="brand">Mærke</label>
             </div>
+            <div class="col-input">
+                <input type="text" id="brand" name="brand" placeholder="Mærke">
+            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-label">
-                    <label for="model">Model</label>
-                </div>
-                <div class="col-input">
-                    <input type="text" id="model" name="model" placeholder="Model">
-                </div>
+        <div class="row">
+            <div class="col-label">
+                <label for="model">Model</label>
             </div>
+            <div class="col-input">
+                <input type="text" id="model" name="model" placeholder="Model">
+            </div>
+        </div>
 
 
-            <div class="row">
-                <div class="col-label">
-                    <label for="price">Pris</label>
-                </div>
-                <div class="col-input">
-                    <input type="number" id="price" name="price" placeholder="Pris">
-                </div>
+        <div class="row">
+            <div class="col-label">
+                <label for="price">Pris</label>
             </div>
+            <div class="col-input">
+                <input type="number" id="price" name="price" placeholder="Pris">
+            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-label">
-                    <label for="status">Status</label>
-                </div>
-                <div class="col-input">
-                    <select type="text" id="status-select">
-                        <option value="disabled selected hidden">Vælg en status</option>
-                        <option value="UNDER_RESTORATION">Istandsættes</option>
-                        <option value="RESTORED">Istandsat</option>
-                        <option value="SOLD">Solgt</option>
-                        <option value="DISASSEMBLE">Adskilles for dele</option>
-                        <option value="SCRAPPED">Skrottet</option>
-                    </select>
-                    <p id = "status-alert" style = "color: red;">Husk at vælge en status!</p>
-                </div>
+        <div class="row">
+            <div class="col-label">
+                <label for="status">Status</label>
             </div>
-           
-            <div>
-                <p id="status" style="min-height:1em;"> </p>
-                <button id="btn-submit" type="button" class="btn btn-primary">Tilføj</button>
+            <div class="col-input">
+                <select type="text" id="status-select">
+                    <option value="disabled selected hidden">Vælg en status</option>
+                    <option value="UNDER_RESTORATION">Istandsættes</option>
+                    <option value="RESTORED">Istandsat</option>
+                    <option value="SOLD">Solgt</option>
+                    <option value="DISASSEMBLE">Adskilles for dele</option>
+                    <option value="SCRAPPED">Skrottet</option>
+                </select>
+                <p id="status-alert" style="color: red;">Husk at vælge en status!</p>
             </div>
+        </div>
+
+        <div>
+            <p id="status" style="min-height:1em;"> </p>
+            <button id="btn-submit" type="button" class="btn btn-primary">Tilføj</button>
+        </div>
     </div>
-
-
 
 </div>

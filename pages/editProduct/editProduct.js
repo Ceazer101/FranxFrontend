@@ -25,7 +25,7 @@ export async function initFindEditProduct(match) {
 
 function getProductNumberFromInputField() {
   const productNumber = document.getElementById("product-id-number").value
-  
+
   if (!productNumber) {
     setStatusMsg("Venligst indtast et produkt nummer", true)
     return
