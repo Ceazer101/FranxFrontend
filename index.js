@@ -14,7 +14,6 @@ import { initFindEditProduct } from "./pages/editProduct/editProduct.js"
 
 window.addEventListener("load", async () => {
 
-    const templatehome = await loadHtml("./pages/home/home.html")
     const templateAddBike = await loadHtml("./pages/addBike/addBike.html")
     const templateGetBikes = await loadHtml("./pages/getBikes/getBikes.html")
     const templateEditBikes = await loadHtml("./pages/editBike/editBike.html")
@@ -38,45 +37,49 @@ window.addEventListener("load", async () => {
       })
       .on({
     
-        "/": () => renderTemplate(templatehome, "content"),
+        "/": () => {
+          renderTemplate(templateAddBike, "content")
+            initMakeBike()
+            initShowInfo()
+        },
   
         "/addBike": () => {
           renderTemplate(templateAddBike, "content")
-          initMakeBike()
-          initShowInfo()
+            initMakeBike()
+            initShowInfo()
         },
   
         "/showBikes": (n) => {
           renderTemplate(templateGetBikes, "content")
-          load()
+            load()
         },
 
         "/editBikes": () => {
           renderTemplate(templateEditBikes, "content")
-          initFindEditBike()
+            initFindEditBike()
       
         },
         
         "/bikeStatistics": () => {
           renderTemplate(templateBikeStatistics, "content")
-          initFindBikes()
-          showquarterly()
+            initFindBikes()
+            showquarterly()
         },
 
         "/showProducts": () => {
           renderTemplate(templateGetProducts, "content")
-          loadProducts()
+            loadProducts()
         },
 
         "/addProduct": () => {
           renderTemplate(templateAddProduct, "content")
-          initMakeProduct()
+            initMakeProduct()
         
         },
         
         "/editProduct": () => {
           renderTemplate(templateEditProduct, "content")
-          initFindEditProduct()
+            initFindEditProduct()
         },
      
       })

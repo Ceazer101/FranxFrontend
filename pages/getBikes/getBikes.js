@@ -25,7 +25,7 @@ function createTable(){
       <td>${bike.brand}</td>
       <td>${bike.price}</td>
       <td>${bike.status}</td>
-      <td>${bike.sellDate}</td>
+      <td>${bike.sellDate || ""}</td>
     `).join("")
     document.getElementById("tbl-body").innerHTML = sanitizeStringWithTableRows(rows)
 }
@@ -77,4 +77,6 @@ function sortingStatus(evt){
     bikes = bikes.sort(sortOnStatus)
     createTable()
 }
+
+
 

@@ -16,7 +16,7 @@ export async function initFindEditBike() {
     bikeInputBrand = document.getElementById("brand")
     bikeInputModel = document.getElementById("model")
     bikeInputPrice = document.getElementById("price")
-    bikeInputStatus = document.getElementById("statusIndicator")
+    bikeInputStatus = document.getElementById("status-select")
     setStatusMsg("", false)
 
 }
